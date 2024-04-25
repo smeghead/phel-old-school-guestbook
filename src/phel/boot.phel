@@ -1,0 +1,3 @@
+(ns old-school-guestbook\boot)
+
+(println "hello, phel.")

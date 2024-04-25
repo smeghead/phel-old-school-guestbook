@@ -1,0 +1,27 @@
+{
+    "name": "smeghead/phel-old-school-guestbook",
+    "description": "Old school guestbook.",
+    "type": "project",
+    "require": {
+        "php": ">=8.2",
+        "phel-lang/phel-lang": "^0.13",
+        "smeghead/phel-pdo": "^0.0.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Smeghead\\PhelOldSchoolGuestbook\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "smeghead",
+            "email": "smeghead7@gmail.com"
+        }
+    ],
+    "scripts": {
+        "test": [
+            "vendor/bin/phel test"
+        ]
+    }
+}
