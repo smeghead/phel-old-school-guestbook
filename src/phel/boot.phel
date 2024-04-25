@@ -1,6 +1,13 @@
 (ns old-school-guestbook\boot
-  (:require phel\http))
+  (:require phel\http)
+  (:require phel\html :refer [html doctype]))
 
 (http/request-from-globals)
 
-(http/emit-response (http/response-from-map {:status 200 :body "hello, phel"}))
+(let [body (html (doctype :html5)
+                 [:head
+                   [:link {:href "https://fonts.xz.style/serve/inter.css" :rel "stylesheet"}]
+                   [:link {:href "https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css" :rel "stylesheet"}]]
+                 [:body [:h1 "hello, phel"]])]
+  (http/emit-response (http/response-from-map {:status 200 :body body})))
+  
