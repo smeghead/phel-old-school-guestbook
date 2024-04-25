@@ -1,3 +1,6 @@
-(ns old-school-guestbook\boot)
+(ns old-school-guestbook\boot
+  (:require phel\http))
 
-(println "hello, phel.")
+(http/request-from-globals)
+
+(http/emit-response (http/response-from-map {:status 200 :body "hello, phel"}))
