@@ -1,0 +1,21 @@
+(ns old-school-guestbook\view\main
+  (:require phel\html :refer [html doctype]))
+
+(def- head
+  [:head
+   [:meta {:charset "utf-8"}]
+   [:meta {:name "viewport" :content "width=device-width, initial-scale=1"}]
+   [:link {:href "https://fonts.xz.style/serve/inter.css" :rel "stylesheet"}]
+   [:link {:href "https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css" :rel "stylesheet"}]
+   [:link {:rel "stylesheet" :href "./css/style.css"}]
+   [:link {:rel "icon" :type "image/png" :href "./images/favicon-32.png"}]
+   [:title "Phel-lang"]])
+
+(def- content
+  [:body
+    [:h1 "Hello, phel"]])
+
+(def index-html (html
+                 (doctype :html5)
+                 head
+                 content))

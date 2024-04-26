@@ -9,17 +9,17 @@ services:
       MYSQL_USER: db_user
       MYSQL_PASSWORD: db_password
     volumes:
-      - ./docker/initdb.d:/docker-entrypoint-initdb.d
+      - ./build/initdb.d:/docker-entrypoint-initdb.d
   php:
     container_name: php
     build:
       context: .
-      dockerfile: ./Dockerfile
+      dockerfile: ./build/Dockerfile
       args:
         - uid
-    working_dir: /var/www/html
+    working_dir: /var/www/phel-old-school-guestbook
     volumes:
-      - ./:/var/www/html
+      - ./:/var/www/html:delegated
     ports:
       - 3333:80
     depends_on:

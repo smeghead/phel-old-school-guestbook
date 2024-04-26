@@ -2,15 +2,25 @@
     "name": "smeghead/phel-old-school-guestbook",
     "description": "Old school guestbook.",
     "type": "project",
+    "keywords": [
+        "phel",
+        "lisp",
+        "functional",
+        "language"
+    ],
+    "license": "MIT",
     "require": {
         "php": ">=8.2",
         "phel-lang/phel-lang": "^0.13",
+        "phel-lang/router": "^0.3",
         "smeghead/phel-pdo": "^0.0.0"
     },
-    "license": "MIT",
+    "require-dev": {
+        "symfony/var-dumper": "^6.4"
+    },
     "autoload": {
         "psr-4": {
-            "Smeghead\\PhelOldSchoolGuestbook\\": "src/"
+            "PhelGenerated\\": "src/PhelGenerated"
         }
     },
     "authors": [
@@ -20,8 +30,10 @@
         }
     ],
     "scripts": {
-        "test": [
-            "vendor/bin/phel test"
-        ]
+        "run:dev": "rm -rf out && php -S localhost:8080 -t public",
+        "run:prod": "composer build && php -S localhost:8080 -t public",
+        "build": "vendor/bin/phel build --no-cache",
+        "format": "vendor/bin/phel format",
+        "test": "vendor/bin/phel test"
     }
 }

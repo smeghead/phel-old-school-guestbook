@@ -1,0 +1,13 @@
+(ns old-school-guestbook\controller\routes
+  (:require old-school-guestbook\view\main :refer [index-html])
+  (:require old-school-guestbook\module\greet :as g)
+  (:require phel\router :as r)
+  (:require phel\http :as h))
+
+(defn index-handler [req]
+  (h/response-from-map {:status 200
+                        :body index-html}))
+
+(defn ping-handler [req]
+  (h/response-from-map {:status 200
+                        :body (g/greet (str "pong - " (rand)))}))
