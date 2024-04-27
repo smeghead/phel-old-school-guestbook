@@ -8,10 +8,7 @@
    (r/router
     [["/" {:name ::top
            :get {:handler routes/index-handler}
-           :post {:handler routes/index-post-handler}}]
-     ["/ping" {:name ::ping
-               :get {:handler routes/ping-handler}
-               :post {:handler routes/ping-handler}}]])))
+           :post {:handler routes/index-post-handler}}]])))
 
 (when-not *build-mode*
   (h/emit-response (app (h/request-from-globals))))

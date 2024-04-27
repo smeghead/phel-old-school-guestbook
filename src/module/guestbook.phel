@@ -15,11 +15,15 @@
 
 (defn create-message [params]
   (let [conn (pdo/connect connection-string user password)
-        stmt (pdo/prepare conn "insert into messages(name, message) values (:name, :message)")]
+        stmt (pdo/prepare
+               conn
+               "insert into messages(name, message) values (:name, :message)")]
     (statement/execute stmt {:name (params "name")
                              :message (params "message")})))
 
 (defn get-messages []
   (let [conn (pdo/connect connection-string user password)
-        stmt (pdo/query conn "select * from messages")]
+        stmt (pdo/query
+               conn
+               "select * from messages order by id limit 100")]
     (statement/fetch-all stmt)))

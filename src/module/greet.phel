@@ -1,4 +1,0 @@
-(ns old-school-guestbook\module\greet)
-
-(defn greet [name]
-  (str "Hello, " name))

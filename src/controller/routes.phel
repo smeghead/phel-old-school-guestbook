@@ -1,6 +1,5 @@
 (ns old-school-guestbook\controller\routes
   (:require old-school-guestbook\view\main :refer [index-html])
-  (:require old-school-guestbook\module\greet :as g)
   (:require old-school-guestbook\module\guestbook)
   (:require phel\router :as r)
   (:require phel\http :as h))
@@ -21,6 +20,3 @@
         (h/response-from-map {:status 302
                               :headers {"Location" "/"}})))))
 
-(defn ping-handler [req]
-  (h/response-from-map {:status 200
-                        :body (g/greet (str "pong - " (rand)))}))

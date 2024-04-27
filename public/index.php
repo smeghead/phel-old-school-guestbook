@@ -5,4 +5,10 @@ $projectRootDir = __DIR__ . '/../';
 
 require $projectRootDir . 'vendor/autoload.php';
 
-Phel::run($projectRootDir, 'old-school-guestbook\\app');
+$buildedEntryPoint = __DIR__ . '/../out/index.php';
+if (file_exists($buildedEntryPoint)) {
+  require_once($buildedEntryPoint);
+} else {
+  Phel::run($projectRootDir, 'old-school-guestbook\\app');
+}
+
