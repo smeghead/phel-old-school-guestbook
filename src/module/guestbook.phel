@@ -1,0 +1,25 @@
+(ns old-school-guestbook\module\guestbook
+  (:require smeghead\pdo)
+  (:require smeghead\pdo\statement))
+
+(def connection-string "mysql:host=db;dbname=guestbook")
+(def user "db_user")
+(def password "db_password")
+
+(defn validate [params]
+  (let [errors []
+        errors (if (empty? (params "name"))
+                 (push errors {:field "name" :message "name is required."})
+                 errors)]
+    errors))
+
+(defn create-message [params]
+  (let [conn (pdo/connect connection-string user password)
+        stmt (pdo/prepare conn "insert into messages(name, message) values (:name, :message)")]
+    (statement/execute stmt {:name (params "name")
+                             :message (params "message")})))
+
+(defn get-messages []
+  (let [conn (pdo/connect connection-string user password)
+        stmt (pdo/query conn "select * from messages")]
+    (statement/fetch-all stmt)))

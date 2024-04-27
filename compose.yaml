@@ -17,7 +17,7 @@ services:
       dockerfile: ./build/Dockerfile
       args:
         - uid
-    working_dir: /var/www/phel-old-school-guestbook
+    working_dir: /var/www/html
     volumes:
       - ./:/var/www/html:delegated
     ports:

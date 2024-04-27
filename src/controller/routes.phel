@@ -1,12 +1,25 @@
 (ns old-school-guestbook\controller\routes
   (:require old-school-guestbook\view\main :refer [index-html])
   (:require old-school-guestbook\module\greet :as g)
+  (:require old-school-guestbook\module\guestbook)
   (:require phel\router :as r)
   (:require phel\http :as h))
 
 (defn index-handler [req]
-  (h/response-from-map {:status 200
-                        :body index-html}))
+  (let [messages (guestbook/get-messages)]
+    (h/response-from-map {:status 200
+                          :body (index-html messages {} [])})))
+
+(defn index-post-handler [req]
+  (let [params (req :parsed-body)
+        errors (guestbook/validate params)]
+    (if-not (empty? errors)
+      (h/response-from-map {:status 200
+                            :body (index-html [] params errors)})
+      (do
+        (guestbook/create-message params)
+        (h/response-from-map {:status 302
+                              :headers {"Location" "/"}})))))
 
 (defn ping-handler [req]
   (h/response-from-map {:status 200

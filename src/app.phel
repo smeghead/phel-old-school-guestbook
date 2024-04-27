@@ -6,7 +6,9 @@
 (def app
   (r/handler
    (r/router
-    [["/" {:handler routes/index-handler}]
+    [["/" {:name ::top
+           :get {:handler routes/index-handler}
+           :post {:handler routes/index-post-handler}}]
      ["/ping" {:name ::ping
                :get {:handler routes/ping-handler}
                :post {:handler routes/ping-handler}}]])))

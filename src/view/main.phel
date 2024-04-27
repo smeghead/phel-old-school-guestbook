@@ -9,13 +9,30 @@
    [:link {:href "https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css" :rel "stylesheet"}]
    [:link {:rel "stylesheet" :href "./css/style.css"}]
    [:link {:rel "icon" :type "image/png" :href "./images/favicon-32.png"}]
-   [:title "Phel-lang"]])
+   [:title "Old School Guestbook"]])
 
-(def- content
+(defn- content [messages params errors]
   [:body
-    [:h1 "Hello, phel"]])
+    [:h1 "Old School Guestbook"]
+    `[:ul ,@(if-not (empty? errors)
+           (map (fn [x] [:li (x :message)]) errors))]
+    [:form {:method "POST"}
+      [:p
+        [:label "Name"]
+        [:br]
+        [:input {:type "text" :name "name" :value (params "name")}]]
+      [:p
+        [:label "Message"]
+        [:br]
+        [:textarea {:name "message"} (params "message")]]
+      [:p
+        [:button {:type "submit"} "Submit"]]]
+    `[:ul ,@(for [m :in messages]
+              [:li (format "%s: %s" (m :name) (m :message))])]])
 
-(def index-html (html
-                 (doctype :html5)
-                 head
-                 content))
+(defn index-html [messages params errors]
+  (let [body (content messages params errors)]
+    (html
+      (doctype :html5)
+      head
+      body)))
