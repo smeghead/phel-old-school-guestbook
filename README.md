@@ -2,7 +2,7 @@
 
 Simple old school guestbook.
 
-This repository is a very primitive project of a small bulletin board application using Phel-lang and mysql for storage.
+This repository is a very primitive project of a small bulletin board Phel-lang application using mysql for storage.
 
 Using Docker, you can prepare an environment that runs PHP and Phel-lang using apache and mysql.
 
