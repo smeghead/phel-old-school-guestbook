@@ -27,7 +27,7 @@ www-data@6298268e0b08:~/html$ composer install
 In your browser, open http://localhost:3333/
 
 
-### phel
+### Compile phel code to PHP code
 
 By default, phel code is compiled and executed for each request. Compiling phel code to PHP code will make it run faster.
 
