@@ -9,6 +9,6 @@ RUN docker-php-ext-install pdo_mysql mysqli
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
+RUN usermod -u ${uid} www-data && groupmod -g ${uid} www-data
 RUN chown -R www-data:www-data /var/www
-RUN usermod -u ${uid} www-data && groupmod -g ${uid} www-data;
 USER www-data

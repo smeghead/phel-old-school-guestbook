@@ -26,6 +26,7 @@ www-data@6298268e0b08:~/html$ composer install
 
 In your browser, open http://localhost:3333/
 
+[image](image.jpg)
 
 ### Compile phel code to PHP code
 

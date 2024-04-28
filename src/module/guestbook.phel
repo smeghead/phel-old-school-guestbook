@@ -17,7 +17,7 @@
   (let [conn (pdo/connect connection-string user password)
         stmt (pdo/prepare
                conn
-               "insert into messages(name, message) values (:name, :message)")]
+               "insert into messages(name, message, created) values (:name, :message, current_timestamp)")]
     (statement/execute stmt {:name (params "name")
                              :message (params "message")})))
 
@@ -25,5 +25,5 @@
   (let [conn (pdo/connect connection-string user password)
         stmt (pdo/query
                conn
-               "select * from messages order by id limit 100")]
+               "select * from messages order by id desc limit 100")]
     (statement/fetch-all stmt)))

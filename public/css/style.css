@@ -1,0 +1,19 @@
+.messages .post {
+  border-radius: 3px;
+  border: 1px solid #333;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+.messages .post span.name {
+  font-weight: bold;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+.messages .post span.created {
+  color: #666;
+  display: inline-block;
+}
+.messages .post p.message {
+  color: #333;
+
+}
