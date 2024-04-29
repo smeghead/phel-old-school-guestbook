@@ -2,9 +2,6 @@
   (:require phel\html :refer [raw-string])
   (:require old-school-guestbook\view\layout))
 
-(defn- multiline [s]
-  (php/nl2br (php/htmlspecialchars s)))
-
 (defn- content [messages params errors]
   [:div {:class "content"}
     `[:ul ,@(if-not (empty? errors)
