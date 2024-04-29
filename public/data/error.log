@@ -1,0 +1,232 @@
+[33;34mCannot resolve symbol 'layout/multiline'[0m
+in /var/www/html/src/view/guestbook.phel:28
+
+8| (defn- content [messages params errors]
+9|   [:body
+10|     [:h1 "Old School Guestbook"]
+11|     `[:ul ,@(if-not (empty? errors)
+12|            (map (fn [x] [:li (x :message)]) errors))]
+13|     [:form {:method "POST"}
+14|       [:p
+15|         [:label "Name"]
+16|         [:br]
+17|         [:input {:type "text" :name "name" :value (params "name")}]]
+18|       [:p
+19|         [:label "Message"]
+20|         [:br]
+21|         [:textarea {:name "message"} (params "message")]]
+22|       [:p
+23|         [:button {:type "submit"} "Submit"]]]
+24|     `[:div {:class "messages"} ,@(for [m :in messages]
+25|                                    [:div {:class "post"}
+26|                                      [:p [:span {:class "name"} (m :name)]
+27|                                          [:span {:class "created"} (m :created)]]
+28|                                      [:p {:class "message"} (raw-string (layout/multiline (m :message)))]])]])
+                                                                             [31;31m^^^^^^^^^^^^^^^^[0m
+
+[33;34mCannot resolve symbol 'layout/multiline'[0m
+in /var/www/html/src/view/guestbook.phel:28
+
+8| (defn- content [messages params errors]
+9|   [:body
+10|     [:h1 "Old School Guestbook"]
+11|     `[:ul ,@(if-not (empty? errors)
+12|            (map (fn [x] [:li (x :message)]) errors))]
+13|     [:form {:method "POST"}
+14|       [:p
+15|         [:label "Name"]
+16|         [:br]
+17|         [:input {:type "text" :name "name" :value (params "name")}]]
+18|       [:p
+19|         [:label "Message"]
+20|         [:br]
+21|         [:textarea {:name "message"} (params "message")]]
+22|       [:p
+23|         [:button {:type "submit"} "Submit"]]]
+24|     `[:div {:class "messages"} ,@(for [m :in messages]
+25|                                    [:div {:class "post"}
+26|                                      [:p [:span {:class "name"} (m :name)]
+27|                                          [:span {:class "created"} (m :created)]]
+28|                                      [:p {:class "message"} (raw-string (layout/multiline (m :message)))]])]])
+                                                                             [31;31m^^^^^^^^^^^^^^^^[0m
+
+[33;34mUnterminated list (BRACKETS)[0m
+in /var/www/html/src/view/layout.phel:16
+
+13| (defn body [content]
+14|   [:body
+15|     [:h1 "Old School Guestbook"]
+16|     content)
+               [31;31m^[0m
+
+[33;34mUnterminated list (BRACKETS)[0m
+in /var/www/html/src/view/layout.phel:16
+
+13| (defn body [content]
+14|   [:body
+15|     [:h1 "Old School Guestbook"]
+16|     content)
+               [31;31m^[0m
+
+[33;34mUnterminated list (BRACKETS)[0m
+in /var/www/html/src/view/layout.phel:16
+
+13| (defn body [content]
+14|   [:body
+15|     [:h1 "Old School Guestbook"]
+16|     content)
+               [31;31m^[0m
+
+[33;34mUnterminated list (BRACKETS)[0m
+in /var/www/html/src/view/layout.phel:16
+
+13| (defn body [content]
+14|   [:body
+15|     [:h1 "Old School Guestbook"]
+16|     content)
+               [31;31m^[0m
+
+[33;34mUnterminated list (BRACKETS)[0m
+in /var/www/html/src/view/layout.phel:16
+
+13| (defn body [content]
+14|   [:body
+15|     [:h1 "Old School Guestbook"]
+16|     content)
+               [31;31m^[0m
+
+[33;34mUnterminated list (BRACKETS)[0m
+in /var/www/html/src/view/layout.phel:16
+
+13| (defn body [content]
+14|   [:body
+15|     [:h1 "Old School Guestbook"]
+16|     content)
+               [31;31m^[0m
+
+[33;34mUnterminated list (BRACKETS)[0m
+in /var/www/html/src/view/layout.phel:16
+
+13| (defn body [content]
+14|   [:body
+15|     [:h1 "Old School Guestbook"]
+16|     content)
+               [31;31m^[0m
+
+[33;34mUnterminated list (BRACKETS)[0m
+in /var/www/html/src/view/layout.phel:16
+
+13| (defn body [content]
+14|   [:body
+15|     [:h1 "Old School Guestbook"]
+16|     content)
+               [31;31m^[0m
+
+[33;34mUnterminated list (BRACKETS)[0m
+in /var/www/html/src/view/layout.phel:16
+
+13| (defn body [content]
+14|   [:body
+15|     [:h1 "Old School Guestbook"]
+16|     content)
+               [31;31m^[0m
+
+[33;34mUnterminated list (BRACKETS)[0m
+in /var/www/html/src/view/layout.phel:16
+
+13| (defn body [content]
+14|   [:body
+15|     [:h1 "Old School Guestbook"]
+16|     content)
+               [31;31m^[0m
+
+[33;34mUnterminated list (BRACKETS)[0m
+in /var/www/html/src/view/layout.phel:16
+
+13| (defn body [content]
+14|   [:body
+15|     [:h1 "Old School Guestbook"]
+16|     content)
+               [31;31m^[0m
+
+[33;34mUnterminated list (BRACKETS)[0m
+in /var/www/html/src/view/layout.phel:16
+
+13| (defn body [content]
+14|   [:body
+15|     [:h1 "Old School Guestbook"]
+16|     content)
+               [31;31m^[0m
+
+[33;34mCannot resolve symbol 'html'[0m
+in /var/www/html/src/view/layout.phel:22
+
+21| (defn render-content [content]
+22|   (html
+       [31;31m^^^^[0m
+23|     (doctype :html5)
+24|     layout/head
+25|     (layout/body content)))
+
+[33;34mCannot resolve symbol 'html'[0m
+in /var/www/html/src/view/layout.phel:22
+
+21| (defn render-content [content]
+22|   (html
+       [31;31m^^^^[0m
+23|     (doctype :html5)
+24|     layout/head
+25|     (layout/body content)))
+
+[33;34mCannot resolve symbol 'layout/head'[0m
+in /var/www/html/src/view/layout.phel:25
+
+22| (defn render-content [content]
+23|   (html
+24|     (doctype :html5)
+25|     layout/head
+        [31;31m^^^^^^^^^^^[0m
+26|     (layout/body content)))
+
+[33;34mCannot resolve symbol 'layout/head'[0m
+in /var/www/html/src/view/layout.phel:25
+
+22| (defn render-content [content]
+23|   (html
+24|     (doctype :html5)
+25|     layout/head
+        [31;31m^^^^^^^^^^^[0m
+26|     (layout/body content)))
+
+[33;34mCannot resolve symbol 'layout/body'[0m
+in /var/www/html/src/view/layout.phel:26
+
+22| (defn render-content [content]
+23|   (html
+24|     (doctype :html5)
+25|     head
+26|     (layout/body content)))
+         [31;31m^^^^^^^^^^^[0m
+
+[33;34mCannot resolve symbol 'layout/body'[0m
+in /var/www/html/src/view/layout.phel:26
+
+22| (defn render-content [content]
+23|   (html
+24|     (doctype :html5)
+25|     head
+26|     (layout/body content)))
+         [31;31m^^^^^^^^^^^[0m
+
+[33;34mUnterminated list (BRACKETS)[0m
+in /var/www/html/src/view/guestbook.phel:32
+
+32| )
+                                                               [31;31m^[0m
+
+[33;34mUnterminated list (BRACKETS)[0m
+in /var/www/html/src/view/guestbook.phel:32
+
+32| )
+                                                               [31;31m^[0m
+

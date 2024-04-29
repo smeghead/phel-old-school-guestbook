@@ -1,5 +1,5 @@
 (ns old-school-guestbook\controller\routes
-  (:require old-school-guestbook\view\main :refer [index-html])
+  (:require old-school-guestbook\view\guestbook :refer [index-html])
   (:require old-school-guestbook\module\guestbook)
   (:require phel\router :as r)
   (:require phel\http :as h))

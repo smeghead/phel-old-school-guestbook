@@ -1,0 +1,27 @@
+(ns old-school-guestbook\view\layout
+  (:require phel\html :refer [html doctype raw-string]))
+
+(def- head
+  [:head
+   [:meta {:charset "utf-8"}]
+   [:meta {:name "viewport" :content "width=device-width, initial-scale=1"}]
+   [:link {:href "https://fonts.xz.style/serve/inter.css" :rel "stylesheet"}]
+   [:link {:href "https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css" :rel "stylesheet"}]
+   [:link {:rel "stylesheet" :href "./css/style.css"}]
+   [:link {:rel "icon" :type "image/png" :href "/images/favicon.png"}]
+   [:title "Old School Guestbook"]])
+
+(defn- body [content]
+  [:body
+    [:h1 "Old School Guestbook"]
+    content])
+
+(defn multiline [s]
+  (php/nl2br (php/htmlspecialchars s)))
+
+(defn render-content [content]
+  (html
+    (doctype :html5)
+    head
+    (body content)))
+

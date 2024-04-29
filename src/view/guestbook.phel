@@ -1,0 +1,32 @@
+(ns old-school-guestbook\view\guestbook
+  (:require phel\html :refer [raw-string])
+  (:require old-school-guestbook\view\layout))
+
+(defn- multiline [s]
+  (php/nl2br (php/htmlspecialchars s)))
+
+(defn- content [messages params errors]
+  [:div {:class "content"}
+    `[:ul ,@(if-not (empty? errors)
+           (map (fn [x] [:li (x :message)]) errors))]
+    [:form {:method "POST"}
+      [:p
+        [:label "Name"]
+        [:br]
+        [:input {:type "text" :name "name" :value (params "name")}]]
+      [:p
+        [:label "Message"]
+        [:br]
+        [:textarea {:name "message"} (params "message")]]
+      [:p
+        [:button {:type "submit"} "Submit"]]]
+    `[:div {:class "messages"}
+           ,@(for [m :in messages]
+               [:div {:class "post"}
+                 [:p [:span {:class "name"} (m :name)]
+                     [:span {:class "created"} (m :created)]]
+                 [:p {:class "message"}
+                     (raw-string (layout/multiline (m :message)))]])]])
+
+(defn index-html [messages params errors]
+  (layout/render-content (content messages params errors)))
