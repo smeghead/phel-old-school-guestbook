@@ -13,7 +13,7 @@
         "php": ">=8.2",
         "phel-lang/phel-lang": "^0.13",
         "phel-lang/router": "^0.3",
-        "smeghead/phel-pdo": "^0.0.0"
+        "smeghead/phel-pdo": "^0.0"
     },
     "require-dev": {
         "symfony/var-dumper": "^6.4"
