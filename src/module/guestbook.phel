@@ -1,6 +1,6 @@
 (ns old-school-guestbook\module\guestbook
-  (:require smeghead\pdo)
-  (:require smeghead\pdo\statement))
+  (:require phel\pdo)
+  (:require phel\pdo\statement))
 
 (def connection-string "mysql:host=db;dbname=guestbook")
 (def user "db_user")

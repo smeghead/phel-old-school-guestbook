@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 use Phel\Config\PhelConfig;
 use Phel\Config\PhelExportConfig;
-use Phel\Config\PhelOutConfig;
+use Phel\Config\PhelBuildConfig;
 
 return (new PhelConfig())
     ->setSrcDirs(['src'])
     ->setTestDirs(['tests'])
     ->setVendorDir('vendor')
-    ->setOut((new PhelOutConfig())
+    ->setBuildConfig((new PhelBuildConfig())
         ->setMainPhelNamespace('old-school-guestbook\app')
         ->setMainPhpPath('out/index.php'))
-    ->setExport((new PhelExportConfig())
-        ->setDirectories(['src/phel'])
+    ->setExportConfig((new PhelExportConfig())
+        ->setFromDirectories(['src/phel'])
         ->setNamespacePrefix('PhelGenerated')
         ->setTargetDirectory('src/PhelGenerated'))
     ->setIgnoreWhenBuilding(['local.phel'])
