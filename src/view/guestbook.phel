@@ -19,11 +19,11 @@
         [:textarea {:name "message"} (params "message")]]
       [:p
         [:button {:type "submit"} "Submit"]]]
-    `[:div {:class "messages"}
+    `[:section {:class "messages"}
            ,@(for [m :in messages]
-               [:div {:class "post"}
-                 [:p [:span {:class "name"} (m :name)]
-                     [:span {:class "created"} (m :created)]]
+               [:article {:class "post"}
+                 [:div [:span {:class "name"} (m :name)]
+                     [:time {:class "created"} (m :created)]]
                  [:p {:class "message"}
                      (raw-string (layout/multiline (m :message)))]])]])
 

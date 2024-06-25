@@ -13,7 +13,6 @@
   (let [result (z/safe-parse
                  post-schema
                  (apply merge (for [[k v] :pairs params] {(keyword k) v})))]
-    (println (result :issues))
     (if (result :success)
       []
       (result :issues))))
