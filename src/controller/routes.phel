@@ -11,10 +11,11 @@
 
 (defn index-post-handler [req]
   (let [params (req :parsed-body)
-        errors (guestbook/validate params)]
+        errors (guestbook/validate params)
+        messages (guestbook/get-messages)]
     (if-not (empty? errors)
       (h/response-from-map {:status 200
-                            :body (index-html [] params errors)})
+                            :body (index-html messages params errors)})
       (do
         (guestbook/create-message params)
         (h/response-from-map {:status 302
