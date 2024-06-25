@@ -1,4 +1,5 @@
 (ns old-school-guestbook\module\guestbook
+  (:require phel\schema :as z)
   (:require phel\pdo)
   (:require phel\pdo\statement))
 
@@ -6,12 +7,21 @@
 (def user "db_user")
 (def password "db_password")
 
+(def post-schema (z/object {:name (z/string)}))
+
 (defn validate [params]
-  (let [errors []
-        errors (if (empty? (params "name"))
-                 (push errors {:field "name" :message "name is required."})
-                 errors)]
-    errors))
+  (let [result (z/safe-parse
+                 post-schema
+                 (apply merge (for [[k v] :pairs params] {(keyword k) v})))]
+    (println (result :issues))
+    (if (result :success)
+      []
+      (result :issues))))
+#  (let [errors []
+#        errors (if (empty? (params "name"))
+#                 (push errors {:field "name" :message "name is required."})
+#                 errors)]
+#    errors))
 
 (defn create-message [params]
   (let [conn (pdo/connect connection-string user password)

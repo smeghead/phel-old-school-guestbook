@@ -15,5 +15,12 @@
 }
 .messages .post p.message {
   color: #333;
+}
 
+ul.error-message {
+  background-color: #fee;
+  border: 1px solid #f33;
+}
+ul.error-message li {
+  color: #f33;
 }

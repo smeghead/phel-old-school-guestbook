@@ -4,8 +4,10 @@
 
 (defn- content [messages params errors]
   [:div {:class "content"}
-    `[:ul ,@(if-not (empty? errors)
-           (map (fn [x] [:li (x :message)]) errors))]
+    (if-not (empty? errors)
+      `[:ul
+        {:class "error-message"}
+        ,@(map (fn [x] [:li (format "%s: %s" (x :paths) (x :message))]) errors)])
     [:form {:method "POST"}
       [:p
         [:label "Name"]
